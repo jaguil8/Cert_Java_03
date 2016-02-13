@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="AppClubs">
     <head>
         <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="https://code.angularjs.org/1.5.0/angular.min.js"></script>
+        <script src="js/indexcontroller.js"></script>
+        <!-- link rel="" href=""> -->
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div ng-controller="mostrarClubs">
+            <div>{{ saludo }}</div>
+            <div>
+                <h2>Clubs</h2>
+                <div ng-repeat="club in clubs">
+                    {{ club.id }}:{{ club.nombre }}
+                </div>
+            </div>
+        </div>
     </body>
 </html>
