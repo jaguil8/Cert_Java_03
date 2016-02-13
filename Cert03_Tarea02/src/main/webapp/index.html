@@ -13,8 +13,29 @@
                 <h2>Equipos de Red</h2>
                 <div ng-repeat="equipo in Equiposdered">
                     {{ equipo.idequipo }}:{{ equipo.nombreequipo }}:{{ equipo.ip }}:{{ equipo.fechainstalacion }}:{{ equipo.fechaultimocambio }}
+                    <button ng-click="cargarClubParaEdicion(club.id)"
+                            >Editar</button>
+                    <button ng-click="eliminarClub(club.id)"
+                            >Eliminar</button>
                 </div>
             </div>
+            <h2>Nuevo Equipo de red</h2>
+            <form>
+                <label>Nombre:</label>
+                <input name="nombre" type="text" 
+                       ng-model="nuevoEquipored.nombreequipo">
+                <label>Ip:</label>
+                <input name="ip" type="text"
+                       ng-model="nuevoEquipored.ip">
+                <label>Fecha de Instalacion:</label>
+                <input name="fechainstalacion" type="date"
+                       ng-model="nuevoEquipored.fechainstalacion">
+                <label>Fecha de Ultimo Cambio:</label>
+                <input name="fechaultimocambio" type="date"
+                       ng-model="nuevoEquipored.fechaultimocambio">
+                <button ng-click="agregarEquipodered()"
+                        ng-disabled="estaAgregando">Agregar</button>
+            </form>
         </div>
     </body>
 </html>
