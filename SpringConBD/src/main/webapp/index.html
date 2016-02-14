@@ -12,9 +12,28 @@
             <div>{{ saludo }}</div>
             <div>
                 <h2>Clubs</h2>
-                <div ng-repeat="club in clubs">
-                    {{ club.id }}:{{ club.nombre }}
+                <div ng-repeat="club in listaCompletaDeClubs | orderBy: 'nombre'">
+                    {{ club.id }} : {{ club.nombre }}
+                    <button 
+                        ng-click="cargarClubParaEdicion(club.id)"
+                            >Editar</button>
+                    <button 
+                        ng-click="eliminarClub(club.id)"
+                            >Eliminar</button>
                 </div>
+            </div>
+            <div>
+                <h2>Nuevo Club</h2>
+                <form>
+                    <label>Nombre:</label>
+                    <input name="nombre" type="text" 
+                           ng-model="clubActual.nombre">
+                    <label>Descripción:</label>
+                    <input name="descripcion" type="text"
+                           ng-model="clubActual.descripcion">
+                    <button ng-click="guardarClub()"
+                            ng-disabled="estaGuardando">Guardar</button>
+                </form>
             </div>
         </div>
     </body>
